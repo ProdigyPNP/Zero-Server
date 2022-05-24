@@ -6,7 +6,7 @@ import Zero.api.*
 object Runner {
 
     var mappings: Mappings? = Mappings()
-    var PORT = 7734
+    var PORT = 80
 
 
     fun main () {
