@@ -5,14 +5,16 @@ import Zero.api.*
 
 object RunnerS {
 
-    private var mappings: Mappings? = Mappings()
+    private val mappings: Mappings = Mappings()
     private val PORT = 443
 
 
     fun main () {
 
+        mappings.addMap("GET", "/", "C:\\Users\\alex\\IdeaProjects\\Zero-Server\\html\\index.html")
 
-        mappings!!.addMap("GET", "/", object : AbstractResponse() {
+
+        mappings.addMap("GET", "/domain", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
                 return xResp
             }
@@ -24,7 +26,7 @@ object RunnerS {
         // Server loop
         var server: Server
         while (true) {
-            server = Server(PORT, mappings!!)
+            server = Server(PORT, mappings)
             val req = server.accept()
             server.sendResponse(req)
             server.shut()
