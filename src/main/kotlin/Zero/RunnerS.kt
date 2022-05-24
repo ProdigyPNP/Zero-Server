@@ -11,7 +11,7 @@ object RunnerS {
 
     fun main () {
 
-        mappings.addMap("GET", "/", "C:\\Users\\alex\\IdeaProjects\\Zero-Server\\html\\index.html")
+        mappings.addMap("GET", "/", "index.html")
 
 
         mappings.addMap("GET", "/domain", object : AbstractResponse() {
