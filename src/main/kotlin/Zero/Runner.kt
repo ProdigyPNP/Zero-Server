@@ -23,7 +23,7 @@ object Runner {
         // --------------------------------------------------
         // Server loop
         var server: Server
-        while (1 == 1) {
+        while (true) {
             server = Server(PORT, mappings!!)
             val req = server.accept()
             server.sendResponse(req)
