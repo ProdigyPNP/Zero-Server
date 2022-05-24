@@ -5,8 +5,8 @@ import Zero.api.*
 
 object Runner {
 
-    var mappings: Mappings? = Mappings()
-    var PORT = 80
+    private var mappings: Mappings? = Mappings()
+    private val PORT = 80
 
 
     fun main () {

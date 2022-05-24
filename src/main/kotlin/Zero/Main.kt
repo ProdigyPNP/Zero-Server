@@ -8,8 +8,20 @@ class Main {
 
         fun main (args: Array<String>) {
 
-            println("\nRunning Zero on http://localhost:${Runner.PORT}")
-            Runner.main()
+            println("\nRunning Zero on http://localhost:80 and http://localhost:443\n")
+
+            val HTTP : Thread = Thread {
+                Runner.main()
+            }
+
+            val HTTPS : Thread = Thread {
+                RunnerS.main()
+            }
+
+
+            HTTP.start()
+            HTTPS.start()
+
         }
 
         val xResp : Response = Response(
