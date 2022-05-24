@@ -1,0 +1,14 @@
+# Project Bytecode output
+/out/
+
+# Project dependencies
+/libs/
+
+# IDEA workspace
+/.idea/workspace.xml
+
+# IDEA rebar3 config
+/.idea/rebar.xml
+
+# IDEA shelf
+/.idea/shelf/
