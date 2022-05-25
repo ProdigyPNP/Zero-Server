@@ -1,6 +1,7 @@
 package Zero.api
 
-import Zero.Main.Companion.xResp
+import Zero.Balancer
+import Zero.Reqs
 import java.io.IOException
 import java.io.InputStream
 import java.net.ServerSocket
@@ -35,16 +36,21 @@ class Server(private val PORT: Int, mappings: Mappings) {
         server.close()
     }
 
-    private fun getResponse(req: Request): Response? {
+    private fun getResponse(req: Request): Response {
+        Reqs.increm(1)
         val respAbs = mappings.getMap(req.method + "_" + req.url)
-            ?: return xResp
+            ?: return Response(
+                Balancer.NextURL(),
+                "text/plain",
+                "200 OK"
+            )
         return respAbs.getResponse(req)
     }
 
     @Throws(IOException::class)
     fun sendResponse(req: Request) {
         val resp = getResponse(req)
-        val out = client!!.getOutputStream()
+        val out = client.getOutputStream()
         try {
             out.write(resp.toString().toByteArray())
         } catch (e: IOException) {

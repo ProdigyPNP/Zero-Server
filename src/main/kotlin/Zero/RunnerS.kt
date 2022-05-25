@@ -1,6 +1,5 @@
 package Zero
 
-import Zero.Main.Companion.xResp
 import Zero.api.*
 
 object RunnerS {
@@ -16,7 +15,13 @@ object RunnerS {
 
         mappings.addMap("GET", "/domain", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
-                return xResp
+                // xResp
+                Reqs.increm(1)
+                return Response(
+                    Balancer.NextURL(),
+                    "text/plain",
+                    "200 OK"
+                )
             }
         })
 

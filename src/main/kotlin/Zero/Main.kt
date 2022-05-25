@@ -1,7 +1,5 @@
 package Zero
 
-import Zero.api.Response
-
 class Main {
 
     companion object {
@@ -24,11 +22,15 @@ class Main {
 
         }
 
+
+        /*
         val xResp : Response = Response(
-            PNP_URL.PNP_URL,
+            Balancer.NextURL(),
             "text/plain",
             "200 OK"
         )
+        */
+
 
 
     }
