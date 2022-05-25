@@ -48,6 +48,22 @@ class Reqs {
         }
 
 
+        fun get () : Int {
+
+            val file : File = File("reqs.txt")
+
+            val reader : FileReader = FileReader(file)
+
+            val content : String = reader.readText()
+
+            val reqs : Int = Integer.parseInt(content)
+
+            val out = reqs + Temp
+
+            return out
+        }
+
+
 
     }
 

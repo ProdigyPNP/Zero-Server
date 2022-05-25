@@ -28,6 +28,18 @@ object Runner {
         })
 
 
+        mappings.addMap("GET", "/reqs", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                increm(1)
+                return Response(
+                    Reqs.get().toString(),
+                    "text/plain",
+                    "200 OK"
+                )
+            }
+        })
+
+
 
         // --------------------------------------------------
         // Server loop
